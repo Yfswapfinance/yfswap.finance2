@@ -3,15 +3,16 @@ let initState = {};
 export const UserReducer = (state = initState, action) => {
   const { type, payload } = action; //object destructring
   switch (type) {
-    case "1":
+    case "BALANCE":
       return {
         ...state,
-        data: payload,
+        balance: payload,
       };
-    case "2":
+    case "USER_REWARD":
+      
       return {
         ...state,
-        data: payload,
+        reward: payload,
       };
 
     default:

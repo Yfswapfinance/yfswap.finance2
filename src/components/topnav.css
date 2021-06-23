@@ -1,0 +1,16 @@
+.inner-contents a {
+    text-decoration: none !important;
+    color: #fff;
+    padding: 10px;
+
+
+  }
+  .inner-contents a:hover {
+    border-bottom: 1px solid #be00fb;
+    color: #fff !important;
+    
+  }
+
+  .active {
+        border-bottom: 1px solid #be00fb !important;
+  }

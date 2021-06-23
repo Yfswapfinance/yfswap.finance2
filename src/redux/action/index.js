@@ -1,24 +1,24 @@
-export const totalVotes = (Useraccount, txiContract) => async (
+export const ContarctAction = (Useraccount, txiContract) => async (
     dispatch
   ) => {
      txiContract.methods
-      .totalVotes()
+      .balanceOf(Useraccount)
       .call()
-      .then((val) => { 
-        // console.log("val",val);    
+      .then((balance) => { 
+        // console.log("balance",balance);    
         dispatch({
-          type: "1",
-          payload: val,
+          type: "BALANCE",
+          payload: balance,
         });
       });
       txiContract.methods
-      .voted(Useraccount)
+      .calculateBNBReward(Useraccount)
       .call()
-      .then((val) => { 
-        // console.log("voted",val);    
+      .then((reward) => { 
+        console.log("reward",reward);    
         dispatch({
-          type: "2",
-          payload: val,
+          type: "USER_REWARD",
+          payload: reward,
         });
       });
   };

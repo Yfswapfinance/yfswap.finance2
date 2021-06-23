@@ -1,21 +1,21 @@
 import './App.css';
-import Sidebar from './components/Sidebar';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Main from './components/Main';
+import { Provider } from 'react-redux';
+import store from './redux/store/index';
+
 function App() {
   return (
-    <Router> 
-     <Sidebar/>
-     {/* <Switch>
-            <Route path="/" exact component={HomeScreen} />
-            <Route path="/product/:productId" component={ProductScreen} />
-            <Route path="/cart" exact component={CartScreen} />
-          </Switch> */}
-    </Router>
+    <>
+      
+    <Provider store={store}>
+
+     <Main/>
+  
+   
+    </Provider>
+    
+    </>
+
  
   );
 }
