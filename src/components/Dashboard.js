@@ -3,7 +3,10 @@ import './dashboard.css';
 import RewardPool from './RewardPool';
 import TransactionInfo from './TransactionInfo';
 
+// import getWeb3 from '../utils/Provider';
 const Dashboard = () => {
+    
+  
     return (
         <>
         <div className="container-fluid">
@@ -28,21 +31,14 @@ const Dashboard = () => {
                                   <img className="d-block w-100" src="assets/img/yfeth-assets/binance-image.png" alt="Third slide"/>
                                 </div>
                               </div>
-                            </div>
-                            
+                            </div>  
                         </div>
                         <RewardPool/>
                         <TransactionInfo/>
                     </div>
-                  
-
-                </div>
-            
-                
+                </div>    
             </div>
-        </div>
-      
-            
+        </div>     
         </>
     )
 }

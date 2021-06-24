@@ -20,8 +20,8 @@ const DisruptiveTransfer = () => {
                               </div>
 
                               <button class="btn-common">
-                                  <img src="assets/img/yfeth-assets/send-icon.svg" alt="" class="img-fluid"/>
-                                  <span>Send</span>
+                                  <img src="assets/img/yfeth-assets/send-icon.svg" alt="" class="img-fluid  "/>
+                                  <span> Send</span>
                               </button>
                         </div>
                     </div>

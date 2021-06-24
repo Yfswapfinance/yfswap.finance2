@@ -3,8 +3,9 @@ import Sidebar from './Sidebar'
 import Topnav from './Topnav';
 import Dashboard from './Dashboard';
 import DisruptiveTransfer from './DisruptiveTransfer';
-import Farms from './Farms';
-import { BrowserRouter as Router, Switch, Route,Link} from "react-router-dom";
+// import Farms from './Farms';
+import Farmswrap from './Farmswrap';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 const Main = () => {
@@ -21,7 +22,7 @@ const Main = () => {
             <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/transfer" component={DisruptiveTransfer} />
-            <Route path="/farms" exact component={Farms} />
+            <Route path="/farms" exact component={Farmswrap} />
           </Switch>
             
              

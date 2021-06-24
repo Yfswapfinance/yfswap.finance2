@@ -22,6 +22,7 @@
 // }
 // export { getWeb3, getContract, httpProvider }
 // export default web3NoAccount
+
 import Web3 from "web3";
 import yfethabi from './yfethAbi.json'
 import Environment from './Environment';
@@ -32,10 +33,22 @@ const getWeb3=()=>{
 }
 const getContract=()=>{
     const web3=getWeb3();
+    
     return new web3.eth.Contract(
         yfethabi,
         Environment.YfethContractAddress
     )
 }
-export default getWeb3;
-export {getContract};
+const getaccount= ()=>{
+    if(window.web3){
+        let web3 = new Web3(window.web3.currentProvider);
+        window.ethereum.enable();
+        return web3.eth.getAccounts();
+      }
+      return false;
+    }
+
+  export default getWeb3;
+
+
+export{getaccount,getContract};

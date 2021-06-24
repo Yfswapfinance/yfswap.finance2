@@ -2,7 +2,7 @@
 	background: #171a33;
     padding: 10px 0;
     border-radius: 20px;
-    margin: 25px 0px;
+    margin: 20px 0px;
     border: 1px solid #be00fb !important;
 }
 
@@ -10,11 +10,14 @@
 	border-bottom: 1px solid #be00fb;
 }
 
+.inner-circle{
+    margin-top: 10px;
+}
 .farm-content .inner-circle span {
 	background: #be00fb;
     border-radius: 20px;
     font-size: 14px;
-    padding: 5px 8px;
+    padding: 5px 10px;
 }
 
 .farm-content .ptb20 {
@@ -51,7 +54,7 @@ background: #171a33;
 	 background-color: #3b0d5b;
     color: #fff !important;
     padding: 8px 15px;
-    height: 50px;
+    height: 43px;
     border-radius: 22px;
     text-decoration: none;
     font-size: 16px;
@@ -70,4 +73,18 @@ background: #171a33;
 }
 .margin_margin{
     margin-top: 10px;
+}
+
+
+.farm-content .form-group {
+	margin-bottom: 0px;
+	position: relative;
+}
+.size12 {
+	font-size: 12px;
+}
+.farm-content .inner-max ul.list-inline{
+	position: absolute;
+    top: 5px;
+    right: 5px;
 }

@@ -22,6 +22,7 @@
   padding: 10px 0;
   }
   
+  
   .inner-tile1 li:nth-child(1) {
   padding: 10px 15px;
   border-bottom: 1px solid #be00fb !important;
@@ -46,3 +47,10 @@
       font-size: 13px;
   }
   
+
+  .pt__30{
+   margin-top: 30px;
+  }
+  .pt__20{
+   margin-top: 20px;
+  }

@@ -15,7 +15,7 @@ export const ContarctAction = (Useraccount, txiContract) => async (
       .calculateBNBReward(Useraccount)
       .call()
       .then((reward) => { 
-        console.log("reward",reward);    
+        // console.log("reward",reward);    
         dispatch({
           type: "USER_REWARD",
           payload: reward,

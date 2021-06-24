@@ -1,53 +1,41 @@
 import React, { useEffect } from 'react'
-// import Web3 from 'web3';
-// import yfethabi from '../utils/yfethAbi.json'
-// import Environment from '../utils/Environment';
-// import getWeb3 from '../utils/Provider';
-import {getContract} from '../utils/Provider';
+import {getContract} from '../utils/Providers';
+import  {getaccount} from '../utils/Providers'
 import { ContarctAction } from '../redux/action';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import './sidebar.css'
 // const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
 const Sidebar = () => {
+
+
+
   const dispatch = useDispatch();
-  const { balance } = useSelector((state) => state.UserReducer);
-  const [Useraccount, setAccount] = React.useState();
+  const { balance } = useSelector((state) => state.UserReducer); 
+ const [Useraccount, setAccount] = React.useState();
   const [txcontract, settxContract] = React.useState();
   const [checkuser, setcheckuser] = React.useState(false);
-  const ConnectToWallet = () => {
-    if (checkuser) {
+
+ 
+  const ConnectToWallet =async  () => {
+    if (checkuser && Useraccount!==undefined) {
       setcheckuser(false);
-      console.log("hello");
-      // const account=  window.ethereum.undefined();
+      console.log("disconnect");
       setAccount(undefined);
     } else {
-      Ethereum();
-      async function Ethereum() {
-        window.ethereum.request({ method: "eth_requestAccounts" });
-        if (typeof window.ethereum !== "undefined") {
-          const account = await window.ethereum.request({
-            method: "eth_requestAccounts",
-          });
-          console.log("here are the accounts====>", account);
-          if (account) {
-            setAccount(account[0]);
-            // const Contract = new web3.eth.Contract(
-            //   yfethabi,
-            //   Environment.YfethContractAddress,
-
-            // );
+        const accounts= await getaccount()
+      
+          console.log("here are the accounts====>", accounts);
+          if (accounts) {
+            setAccount(accounts[0]);
             const Contract=getContract()
             // console.log("Contract",Contract);
             settxContract(Contract);
           }
+          setcheckuser(true);
         }
-        setcheckuser(true);
+      
       }
-
-    }
-
-  };
   useEffect(() => {
     if (Useraccount !== undefined && txcontract !== undefined) {
       dispatch(ContarctAction(Useraccount, txcontract))
@@ -60,12 +48,15 @@ const Sidebar = () => {
          <Link>
             <img src="assets/img/yfeth-assets/logo.svg" alt="" width="100px" className="img-fluid" />
           </Link>
-        <button className="btn-common"><img src="assets/img/yfeth-assets/buy-icon.svg" alt="" /> BUY $YFETH</button>
-        <div className="inner-tile text-left ptb10">
+        
+          <button className="btn-common pt__20"><img src="assets/img/yfeth-assets/buy-icon.svg" alt="" /> BUY $YFETH</button>
+          
+     
+        <div className="inner-tile text-left ptb10 pt__30">
           <h3>Wallet Information</h3>
           <h6>Your Address:</h6>
           <p>{Useraccount ? Useraccount : ""}</p>
-          <div className="row">
+          <div className="row pt20">
             <div className="col-sm-6">
               <div className="inner-side">
                <Link className="grey">
@@ -91,7 +82,7 @@ const Sidebar = () => {
           </div>
          
         </div>
-        <div className="inner-tile1 text-left">
+        <div className="inner-tile1 text-left pt__30">
           <ul>
             <li>
              <Link  className="img-fluid">
@@ -113,9 +104,11 @@ const Sidebar = () => {
             </li>
           </ul>
         </div>
-        <button className="btn-common" onClick={ConnectToWallet}>
+        <button className="btn-common pt__20" onClick={ConnectToWallet}>
           <img src="assets/img/yfeth-assets/disconnect-icon.svg" alt="" className="img-fluid" />
           {Useraccount ? "Disconnect Wallet" : " Connect Wallet"} </button>
+         
+
       </div>
     </>
   )
