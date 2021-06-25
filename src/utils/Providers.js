@@ -33,12 +33,14 @@ const getWeb3=()=>{
 }
 const getContract=()=>{
     const web3=getWeb3();
-    
     return new web3.eth.Contract(
         yfethabi,
         Environment.YfethContractAddress
     )
 }
+// console.log("getContract",getContract());
+
+//In getaccount we receive a promise and resolve it.
 const getaccount= ()=>{
     if(window.web3){
         let web3 = new Web3(window.web3.currentProvider);
@@ -47,6 +49,7 @@ const getaccount= ()=>{
       }
       return false;
     }
+// console.log("getaccount",getaccount());
 
   export default getWeb3;
 

@@ -5,14 +5,11 @@ import { ContarctAction } from '../redux/action';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import './sidebar.css'
-// const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+import {} from '../utils/TruffleProvider';
 const Sidebar = () => {
-
-
-
   const dispatch = useDispatch();
   const { balance } = useSelector((state) => state.UserReducer); 
- const [Useraccount, setAccount] = React.useState();
+  const [Useraccount, setAccount] = React.useState();
   const [txcontract, settxContract] = React.useState();
   const [checkuser, setcheckuser] = React.useState(false);
 

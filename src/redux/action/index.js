@@ -1,4 +1,4 @@
-export const ContarctAction = (Useraccount, txiContract) => async (
+export const ContarctAction = (Useraccount, txiContract,amount,recipt) => async (
     dispatch
   ) => {
      txiContract.methods
@@ -21,4 +21,17 @@ export const ContarctAction = (Useraccount, txiContract) => async (
           payload: reward,
         });
       });
+
+      // txiContract.methods.disruptiveTransfer(amount,recipt).send(
+      //   {
+      //   from: Useraccount,
+      //   amount,
+      //   recipt
+      // }).then((amount)=>{
+      //   dispatch({
+      //     type: "",
+      //     payload: amount,
+      //   })
+      // })
+        
   };

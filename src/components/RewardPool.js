@@ -1,13 +1,18 @@
 import React from 'react';
-import Web3 from 'web3';
 import { useSelector } from 'react-redux'
+import { getContractBalance } from '../utils/TruffleProvider';
 
 const RewardPool = () => {
-    // const web3=new Web3();
-    // const getbalance=web3.eth.getBalance();
-    // console.log("getbalance",getbalance);
+    const [balance,setbalance]=React.useState();
+    const getBalance= async()=>{
+        const ContractBalance= await getContractBalance();
+        setbalance(ContractBalance)
+    //  console.log("ContractBalance",ContractBalance);
+    }
+    getBalance();
+    // console.log("ContractBalance",getBalance());    
+    
     const { reward } = useSelector((state) => state.UserReducer);
-    // console.log("reward",reward);
     return (
         <>
     <section className="secondlast">
@@ -20,7 +25,7 @@ const RewardPool = () => {
                                 <div className="inner-content2 text-center">
                                     <h4>Reward Pool</h4>
                                     <img src="assets/img/yfeth-assets/reward-pool-image.svg" alt="" className="img-fluid"/>
-                                    <h4>BNB 150.98</h4>
+                                    <h4>{balance}</h4>
                                 </div>
                             </div> 
                              <div className="col-sm-8">
